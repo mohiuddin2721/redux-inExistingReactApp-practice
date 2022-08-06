@@ -1,5 +1,6 @@
 import './App.css';
-// import Coin from './features/coin/Coin';
+import Btc from './component/page/Btc';
+import Coin from './features/coin/Coin';
 import Counter from './features/counter/Counter';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <div className="App">
       <Counter />
-      {/* <Coin /> */}
+      <Coin />
+      <Btc />
     </div>
   );
 }

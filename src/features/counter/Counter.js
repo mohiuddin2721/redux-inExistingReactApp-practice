@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment, incrementByAmount } from './counterSlice';
 
 function Counter() {
-    const [count, setCount] = useState(0);
+    const count = useSelector((state) => state.counter.count)
+    const dispatch = useDispatch()
+
     return (
         <div>
-            <button className='button' aria-label='Increment value' onClick={() => { setCount(count + 1) }}> + </button>
+            <button 
+            className='button' 
+            // aria-label='Increment value' 
+            onClick={() => { dispatch(increment()) }}> + </button>
 
             <span className='value'>Count: {count}</span>
 
-            <button className='button' aria-label='Increment value' onClick={() => { setCount(count - 1) }}> - </button>
+            <button 
+            className='button' 
+            // aria-label='Decrement value' 
+            onClick={() => { dispatch(decrement()) }}> - </button>
+
+            <button 
+            className='button' 
+            // aria-label='Decrement value' 
+            onClick={() => { dispatch(incrementByAmount(10)) }}> Increment by 10 </button>
         </div>
     );
 };
