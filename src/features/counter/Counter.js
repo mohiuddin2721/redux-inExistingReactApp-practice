@@ -3,6 +3,7 @@ import { decrement, increment, incrementByAmount } from './counterSlice';
 
 function Counter() {
     const count = useSelector((state) => state.counter.count)
+    const counterColor = useSelector((state) => state.color.color)
     const dispatch = useDispatch()
 
     return (
@@ -12,7 +13,10 @@ function Counter() {
             // aria-label='Increment value' 
             onClick={() => { dispatch(increment()) }}> + </button>
 
-            <span className='value'>Count: {count}</span>
+            <span 
+            className='value'
+            style={{color: counterColor}}
+            >Count: {count}</span>
 
             <button 
             className='button' 

@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux';
 
 const Btc = () => {
     const btc = useSelector((state) => state.counter.count)
+    const btcColor = useSelector((state) => state.color.color)
     return (
         <div>
-            <span className="value">Coin: {btc}</span>
+            <span 
+            className="value"
+            style={{color: btcColor}}
+            >Btc: {btc}</span>
         </div>
     );
 };
